@@ -11,13 +11,9 @@ public class UserData : IUserData
     {
         _dbAccess = dbAccess;
     }
-    public async Task<IEnumerable<User>> LoginUser(string email)
+    public async Task<IEnumerable<User>> GetUser(int? id, string? email)
     {
-        return await _dbAccess.LoadData<User, dynamic>("[dbo].[sp_getuser]", new { email });
-    }
-    public async Task<IEnumerable<User>> GetUser(int id)
-    {
-        return await _dbAccess.LoadData<User, dynamic>("[dbo].[sp_getuser]", new { id });
+        return await _dbAccess.LoadData<User, dynamic>("[dbo].[sp_getuser]", id != null ? new { id } : new { email });
     }
     public async Task InsertUser(string name, string email, string password)
     {

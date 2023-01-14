@@ -17,7 +17,7 @@ public class UserController : ControllerBase
     {
         if (credentials.Email != null)
         {
-            var user = await data.LoginUser(credentials.Email);
+            var user = await data.GetUser(null, credentials.Email);
 
             PasswordVerificationResult result = _hasher.VerifyHashedPassword(credentials, user.First().Password, credentials.Password);
             if (result == PasswordVerificationResult.Success)
@@ -56,7 +56,7 @@ public class UserController : ControllerBase
         if (upUser.Email is not null && upUser.Password is not null && upUser.NewPassword is not null && upUser.Name is not null)
         {
             LoginCredentials loginCredentials = new() { Email = upUser.Email, Password = upUser.Password };
-            var userData = await data.GetUser(upUser.Id);
+            var userData = await data.GetUser(upUser.Id, null);
 
             PasswordVerificationResult checkPassword = _hasher.VerifyHashedPassword(loginCredentials, userData.First().Password, upUser.Password);
             if (checkPassword == PasswordVerificationResult.Failed)

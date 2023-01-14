@@ -65,5 +65,11 @@
     <Build Include="dbo\stored procedures\sp_getuser.sql" />
     <Build Include="dbo\stored procedures\sp_insertuser.sql" />
     <Build Include="dbo\stored procedures\sp_updateuser.sql" />
+    <Build Include="dbo\tables\product.sql" />
+    <Build Include="dbo\tables\image.sql" />
+    <Build Include="dbo\tables\category.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="FakeDb.refactorlog" />
   </ItemGroup>
 </Project>
