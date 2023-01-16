@@ -59,17 +59,31 @@
     <Folder Include="dbo" />
     <Folder Include="dbo\tables" />
     <Folder Include="dbo\stored procedures" />
+    <Folder Include="dbo\stored procedures\user" />
+    <Folder Include="dbo\stored procedures\category" />
+    <Folder Include="dbo\stored procedures\product" />
+    <Folder Include="dbo\Initialize" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\tables\user.sql" />
-    <Build Include="dbo\stored procedures\sp_getuser.sql" />
-    <Build Include="dbo\stored procedures\sp_insertuser.sql" />
-    <Build Include="dbo\stored procedures\sp_updateuser.sql" />
     <Build Include="dbo\tables\product.sql" />
-    <Build Include="dbo\tables\image.sql" />
+    <Build Include="dbo\tables\product_image.sql" />
     <Build Include="dbo\tables\category.sql" />
+    <Build Include="dbo\tables\category_image.sql" />
+    <Build Include="dbo\stored procedures\user\sp_updateuser.sql" />
+    <Build Include="dbo\stored procedures\user\sp_insertuser.sql" />
+    <Build Include="dbo\stored procedures\user\sp_getuser.sql" />
+    <Build Include="dbo\stored procedures\category\sp_insertcategory.sql" />
+    <Build Include="dbo\stored procedures\category\sp_insertcategoryimage.sql" />
+    <Build Include="dbo\stored procedures\category\sp_getcategory.sql" />
+    <Build Include="dbo\stored procedures\product\sp_insertproduct.sql" />
+    <Build Include="dbo\stored procedures\product\sp_insertproductimage.sql" />
+    <Build Include="dbo\stored procedures\product\sp_getproduct.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="FakeDb.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="dbo\Initialize\Script.PostDeployment.sql" />
   </ItemGroup>
 </Project>
